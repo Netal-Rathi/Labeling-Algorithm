@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAG Visualizer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">DAG Visualizer</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Input</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="nav nav-tabs mb-3" id="inputTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="expression-tab" data-bs-toggle="tab" data-bs-target="#expression" type="button" role="tab">Expression</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="tac-tab" data-bs-toggle="tab" data-bs-target="#tac" type="button" role="tab">Three-Address Code</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="inputTabsContent">
+                            <div class="tab-pane fade show active" id="expression" role="tabpanel">
+                                <form id="expressionForm">
+                                    <div class="mb-3">
+                                        <textarea class="form-control" id="expressionInput" rows="3" 
+                                            placeholder="Enter a mathematical expression (e.g., 'a = b * c + d' or 'x + y * z')"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Generate DAG</button>
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="tac" role="tabpanel">
+                                <form id="tacForm">
+                                    <div class="mb-3">
+                                        <textarea class="form-control" id="tacInput" rows="10" 
+                                            placeholder="Enter your three-address code instructions here (one per line)&#10;Example:&#10;a = b + c&#10;d = a * e"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Generate DAG</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Visualization</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="dagContainer">
+                            <div id="dagImage" class="text-center">
+                                <p class="text-muted">Enter code to generate DAG visualization</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Analysis Results</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="analysisResults">
+                            <p class="text-muted">Results will appear here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html> 
