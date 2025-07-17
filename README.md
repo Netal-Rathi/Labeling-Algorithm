@@ -141,9 +141,3 @@ This project is licensed under the MIT License.
 ## 🤝 Contributing
 
 Feel free to open issues or pull requests to improve this project.
-
----
-
-## 💬 Contact
-
-For questions, feedback, or collaboration, reach out via [GitHub](https://github.com/your-username).
